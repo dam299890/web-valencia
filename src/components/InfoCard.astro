@@ -104,6 +104,11 @@ const INFO = [
     mainPerson: "Ayuntamiento de Alicante",
     address: "Centro de Tecnificación Pabellón Pedro Ferrándiz de la ciudad",
   },
+  {
+    location: "Barcelona",
+    mainPerson: "Ayuntamiento de Barcelona",
+    address: "Centro Cívico President Macià",
+  },
 ]
 ---
 
@@ -120,17 +125,7 @@ const INFO = [
 
       <div class="text-base mt-2 text-gray-700 dark:text-gray-400">
         <ul>
-            <li>{mainPerson}</li>
-            <li>
-                Teléfono:{" "}
-                  <a
-                    href={`tel:${Array.isArray(phone) ? phone[0] : phone}`}
-                    class="text-blue-500 hover:text-indigo-100"
-                  >
-                    {Array.isArray(phone) ? phone.join(", ") : phone}
-                  </a>
-            </li>
-            <li>
+          <li>
                 Dirección:{" "}
                   <a
                     href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
@@ -141,6 +136,16 @@ const INFO = [
                     class="text-blue-500 hover:text-indigo-100"
                   >
                     {address}
+                  </a>
+            </li>
+            <li>{mainPerson}</li>
+            <li>
+                Teléfono:{" "}
+                  <a
+                    href={`tel:${Array.isArray(phone) ? phone[0] : phone}`}
+                    class="text-blue-500 hover:text-indigo-100"
+                  >
+                    {Array.isArray(phone) ? phone.join(", ") : phone}
                   </a>
             </li>
         </ul>
