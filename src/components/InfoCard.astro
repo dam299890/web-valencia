@@ -88,7 +88,22 @@ const INFO = [
     mainPerson: "Voluntariado Paiporta",
     phone: 610558658,
     address: "Institut Andreu Alfaro",
-  }
+  },
+  {
+    location: "Alzira",
+    mainPerson: "Cruz Roja",
+    address: "Palau d’Esports",
+  },
+  {
+    location: "Tetúan",
+    mainPerson: "Ayuntamiento de Castellón",
+    address: "Zaguán de entrada Cámara Agraria Local. Avenida Lidón",
+  },
+  {
+    location: "Alicante",
+    mainPerson: "Ayuntamiento de Alicante",
+    address: "Centro de Tecnificación Pabellón Pedro Ferrándiz de la ciudad",
+  },
 ]
 ---
 
@@ -97,7 +112,7 @@ const INFO = [
     INFO.map(({location, mainPerson, phone, address}) => (
     <article class={`flex space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0 w-[40%] p-1
     border-double rounded-md border-4 border-sky-500 gap-2 bg-gray-900  ${location.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`}>
-  <div class="w-full md:w-1/2 md:max-w-lg">
+  <div class="w-full md:max-w-lg">
     <h4 class="text-lg font-semibold mb-2 text-gray-800 dark:text-gray-100">
       {location}
     </h4>
