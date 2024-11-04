@@ -1,0 +1,138 @@
+---
+const INFO = [
+{
+    location: "Alcúdia",
+    mainPerson: "Jhonatan Martinez",
+    phone: 691177680,
+    address: "Magatzem Municipal P.I. Camí Reial",
+
+  },
+  {
+    location: "Fortaleny",
+    mainPerson: "Lucía Grau",
+    phone: 686188664,
+    address: "Nave industrial. Calle Caminas S/N",
+
+  },
+  {
+    location: "Manises",
+    mainPerson: "Juan Carlos Esteve",
+    phone: 609006824,
+    address: "Edifici s socials. Plaça dos de maig",
+
+  },
+  {
+    location: "Pedralba",
+    mainPerson: "Andoni León",
+    phone: 629964877,
+    address: "Centre multiusos. Calle Padre Ismael Quiles",
+
+  },
+  {
+    location: "Aldaia",
+    mainPerson: "Guillermo",
+    phone: 667464965,
+    address: "CEIP El Rajolar. C/Pablo Picasso, 1",
+
+  },
+  {
+    location: "Almussafes",
+    mainPerson: "Antonio Gonzalez, Jaime Wic",
+    phone: [651339086, 628777145],
+    address: "Pabellón Municipal",
+  },
+  {
+    location: "Alaquàs",
+    mainPerson: "Loli Martinez",
+    phone: 699201113,
+    address: "Centre Dia. C/ Andalucia",
+  },
+  {
+    location: "Cheste",
+    mainPerson: "Ajuntament Cheste",
+    phone: 962510015,
+    address: "Local Fallas. C/Maestro Serrano, 4",
+  },
+  {
+    location: "Cullera",
+    mainPerson: "Jordi",
+    phone: 664469069,
+    address: "Magatzem fruites Botanc. C/Sueca S/N",
+  },
+  {
+    location: "Picassent",
+    mainPerson: "Carles Silla",
+    phone: 637559053,
+    address: "Sala El Refugi. La Ermita",
+  },
+  {
+    location: "Sedaví",
+    mainPerson: "José Francisco",
+    phone: 606999577,
+    address: "IES Sedaví. C/Sol S/N",
+  },
+  {
+    location: "Benifaio",
+    mainPerson: "Marta Ortiz",
+    phone: 664466700,
+    address: "Centre Cultural. C/Vicente Medina, 22",
+  },
+  {
+    location: "Llombai",
+    mainPerson: "Ramón Gómez",
+    phone: 659057888,
+    address: "Ajuntament Llombai",
+  },
+  {
+    location: "Paiporta",
+    mainPerson: "Voluntariado Paiporta",
+    phone: 610558658,
+    address: "Institut Andreu Alfaro",
+  }
+]
+---
+
+<div class="flex justify-evenly flex-row flex-wrap gap-y-16 ">
+  {
+    INFO.map(({location, mainPerson, phone, address}) => (
+    <article class={`flex space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0 w-[40%] p-1
+    border-double rounded-md border-4 border-sky-500 gap-2 bg-gray-900  ${location.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`}>
+  <div class="w-full md:w-1/2 md:max-w-lg">
+    <h4 class="text-lg font-semibold mb-2 text-gray-800 dark:text-gray-100">
+      {location}
+    </h4>
+    <div class="flex mt-2">
+
+      <div class="text-base mt-2 text-gray-700 dark:text-gray-400">
+        <ul>
+            <li>{mainPerson}</li>
+            <li>
+                Teléfono:{" "}
+                  <a
+                    href={`tel:${Array.isArray(phone) ? phone[0] : phone}`}
+                    class="text-blue-500 hover:text-indigo-100"
+                  >
+                    {Array.isArray(phone) ? phone.join(", ") : phone}
+                  </a>
+            </li>
+            <li>
+                Dirección:{" "}
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                      `${address}, ${location}`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-blue-500 hover:text-indigo-100"
+                  >
+                    {address}
+                  </a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</article>
+    ))
+  }
+</div>
