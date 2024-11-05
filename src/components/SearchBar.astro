@@ -20,14 +20,14 @@ const searchInput = document.getElementById("default-search")as HTMLInputElement
 let debounceTimer:number;
 
 searchInput?.addEventListener("input", function () {
-  // Limpia el temporizador anterior cada vez que el usuario escribe
+
   clearTimeout(debounceTimer);
 
-  // Configura un nuevo temporizador
+
   debounceTimer = setTimeout(() => {
     const searchText = searchInput.value.toLowerCase();
 
-    // Selecciona todos los elementos <article>
+
     const articles = document.querySelectorAll("article");
 
     articles.forEach((article) => {
@@ -37,13 +37,13 @@ searchInput?.addEventListener("input", function () {
         const lastClass = classes[classes.length - 1].toLowerCase();
 
         if (lastClass.includes(searchText)) {
-          article.style.display = ""; // Muestra el artículo si coincide
+          article.style.display = ""; 
         } else {
-          article.style.display = "none"; // Oculta el artículo si no coincide
+          article.style.display = "none";
         }
       }
     });
-  }, 350); // Espera 350ms antes de ejecutar la búsqueda
+  }, 350); 
 });
 
 </script>
